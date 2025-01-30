@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# 1. Copy ISP_SYN.v to CHIP_SYN.v
+cp ../02_SYN/Netlist/ISP_SYN.v CHIP_SYN.v
+
+# 2. Replace 'module ISP' with 'module CHIP' in CHIP_SYN.v
+sed -i 's/module ISP/module CHIP/' CHIP_SYN.v
+
+# 3. Copy ISP_SYN.sdc to CHIP.sdc
+cp ../02_SYN/Netlist/ISP_SYN.sdc CHIP.sdc
+
+# 4. Comment out set_wire_load_mode in CHIP.sdc
+sed -i 's/set_wire_load_mode/# set_wire_load_mode/' CHIP.sdc
+
+# 5. Comment out set_wire_load_model in CHIP.sdc
+# sed -i 's/set_wire_load_model/# set_wire_load_model/' CHIP.sdc
+
+# 6. Copy CHIP.sdc to CHIP_cts.sdc
+cp CHIP.sdc CHIP_cts.sdc
+
+# 7. Comment out set_clock_uncertainty in CHIP_cts.sdc
+sed -i 's/set_clock_uncertainty/# set_clock_uncertainty/' CHIP_cts.sdc
+
+# 8. Comment out all set_clock_transition lines in CHIP_cts.sdc
+sed -i 's/set_clock_transition/# set_clock_transition/' CHIP_cts.sdc
+
+echo "Script execution completed."

@@ -1,0 +1,3 @@
+# Lab10
+
+這次的Lab要使用SV來做Verficaiton。與歷屆的Lab都差不多，寫CHECKER的時候照樣造句應該就能完成了。
